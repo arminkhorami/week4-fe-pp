@@ -5,17 +5,24 @@ import Header from "./components/Header";
 import Services from "./components/Services";
 import Tours from "./components/Tours";
 import "./App.css";
+import Home from "./components/Home";
+import NotFound from "./components/NotFound";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <Hero />
-      <About />
-      <Services />
-      <Tours />
-      <Footer />
-    </div>
+      <Hero /> 
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/tours" element={<Tours />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />     
+      </BrowserRouter>  
   );
 }
 
