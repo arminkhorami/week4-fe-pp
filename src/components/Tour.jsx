@@ -1,4 +1,5 @@
-function Tour({ image, date, title, info, location, duration, cost, difficulty, rating }) {
+// insert id and removeTour
+function Tour({ image, date, title, info, location, duration, cost, difficulty, rating, removeTour, id}) {
   return (
     <article className="tour-card">
       <div className="tour-img-container">
@@ -21,6 +22,8 @@ function Tour({ image, date, title, info, location, duration, cost, difficulty, 
           </p>
           <p>from {cost}</p>
           <p>{duration} days</p>
+          {/* remove tour */}
+          <button className="btn delete-btn" onClick={() => removeTour(id)}>Remove this tour</button>
         </div>
       </div>
     </article>
