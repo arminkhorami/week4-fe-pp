@@ -6,13 +6,27 @@ import Service from "./Service";
 const Services = () => {
   const [servicesData, setServicesData] = useState(services);
 
+  // remove services
+  const removeService = (id) => {
+    setServicesData(servicesData.filter((service) => service.id !== id));
+  };
   return (
     <section className="section services" id="services">
       <Title title="our" subTitle="services" />
 
       <div className="section-center services-center">
         {servicesData.map((service) => {
-          return <Service {...service} key={service.id} />;
+          return (
+            <div key={service.id}>
+              <Service {...service} />
+              <button
+                className="btn remove-btn"
+                onClick={() => removeService(service.id)}
+              >
+                Remove
+              </button>
+            </div>
+          );
         })}
       </div>
     </section>
